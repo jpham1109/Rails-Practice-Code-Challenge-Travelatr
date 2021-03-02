@@ -1,0 +1,16 @@
+<h1> Blogger's Profile </h1>
+<main>
+<hr>
+<p><strong> Name: </strong><%= @blogger.name %></p><hr>
+<p><strong> Bio: </strong><%= @blogger.bio %> </p><hr>
+<p><strong> Age: </strong><%= @blogger.age %> </p><hr>
+<p><strong> Total likes: </strong><%= @blogger.total_likes %></p>
+<p><strong> Featured posts: </strong><%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post) %></p>
+<p><strong> Top 5 destinations:</strong>
+  <ol><% @blogger.favorite_destinations.each do |dest| %>
+    <li><%= dest.name %>, <%= dest.country %></li>
+  <% end %>
+  </ol>
+</p>
+
+</main>

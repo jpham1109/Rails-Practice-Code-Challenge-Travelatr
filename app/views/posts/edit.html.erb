@@ -1,0 +1,16 @@
+<h1> Edit A Post </h1>
+<main>
+<hr>
+<p><%= form_for @post do |f| %></p>
+<p><%= f.label :title, "Title" %>
+   <%= f.text_field :title %></p>
+<p><%= f.label :content, "Post" %>
+   <%= f.text_area :content %></p><hr>
+<p><%= f.label :blogger_id, "Author" %>
+   <%= f.collection_select :blogger_id, @bloggers, :id, :name %></p>
+<p><%= f.label :destination_id, "Location" %>
+   <%= f.collection_select :destination_id, @destinations, :id, :name %></p>
+<hr>
+<p><%= f.submit "Make changes" %></p>
+<% end %>
+</main>

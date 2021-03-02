@@ -1,0 +1,23 @@
+<h1> Write A New Post </h1>
+<main>
+  <% if @errors %>
+    <ul>
+    <% @errors.each do |error| %>
+      <li style= "color: red"><%= error %></li>
+    <% end %>
+    </ul>
+  <% end %>
+<hr>
+<p><%= form_for @post do |f| %></p>
+<p><%= f.label :title, "Title" %>
+   <%= f.text_field :title %></p>
+<p><%= f.label :content, "Post" %>
+   <%= f.text_area :content %></p><hr>
+<p><%= f.label :blogger_id, "Author" %>
+   <%= f.collection_select :blogger_id, @bloggers, :id, :name %></p>
+<p><%= f.label :destination_id, "Location" %>
+   <%= f.collection_select :destination_id, @destinations, :id, :name %></p>
+<hr>
+<p><%= f.submit "Create post" %></p>
+<% end %>
+</main>

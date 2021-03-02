@@ -1,3 +1,9 @@
+Blogger.all.destroy_all
+Blogger.all.reset_pk_sequence
+Destination.all.destroy_all
+Destination.all.reset_pk_sequence
+Post.all.destroy_all
+Post.all.reset_pk_sequence
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -24,11 +30,12 @@ end
 
   (2..6).to_a.sample.times do 
     Post.create({
-      title: Faker::Hipster.sentence(3),
-      content: Faker::Hipster.paragraphs(4),
+      title: Faker::Hipster.sentence,
+      content: Faker::Hipster.paragraph,
       likes: 0,
       blogger: blogger,
       destination: Destination.all.sample
     })
   end
 end
+puts "🚘🗿🏝🌅 SEEDED 🛳🛩🚲🌄⛰🏞🚖"
