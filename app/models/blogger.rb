@@ -7,7 +7,7 @@ class Blogger < ApplicationRecord
     validates :bio, length: { minimum: 30, too_short: "%{count} characters is the minimum allowed" }
   
     def total_likes
-        self.posts.inject(self.posts[0].likes) { |sum, post| sum + post.likes }
+        self.posts.sum{|post| post.likes}
     end
 
     def featured_post

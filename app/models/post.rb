@@ -7,8 +7,6 @@ class Post < ApplicationRecord
     validates :content, length: {minimum: 100, too_short: "%{count} characters is the minimum allowed"}
 
     def init
-        if self.likes.nil? 
-            self.likes = 0
-        end
+        self.likes = 0 if self.likes.nil? 
     end
 end
